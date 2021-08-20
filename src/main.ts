@@ -10,7 +10,7 @@ import { getPackageInfo } from "@selinarnd/node-utils";
 import { AppModule } from "./app.module";
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule); // callse express() under the hood
 
   const configService = app.get(ConfigService);
 
@@ -27,7 +27,8 @@ async function bootstrap() {
 function createSwaggerSite(app) {
   const swaggerOptions = new DocumentBuilder()
     .setTitle("first-microservice")
-.setDescription("my first microservice that will act like proxy probably")    .setVersion(getPackageInfo().version)
+    .setDescription("my first microservice that will act like proxy probably")
+    .setVersion(getPackageInfo().version)
     .addServer("https://", "http")
     .addServer("http://", "http")
     .build();
