@@ -1,0 +1,47 @@
+{
+  "name": "first-microservice",
+  "description": "my first microservice that will act like proxy probably",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/murattishkul/first-microservice.git"
+  },
+  "author": {
+    "name": "Murat Tishkul",
+    "email": "murat.tishkul@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/murattishkul/first-microservice/issues"
+  },
+  "engines": {
+    "node": ">=12.18.0 < 13"
+  },
+  "engineStrict": true,
+  "config": {
+    "engine-strict": true
+  },
+  "scripts": {
+    "build": "nest build -p tsconfig.development.json",
+    "build:watch": "nest build -p tsconfig.development.json -w",
+    "build:typedoc": "typedoc --mode modules --tsconfig tsconfig.base.json --out ./typedoc/",
+    "build:prod": "nest build -p tsconfig.production.json",
+    "format": "eslint --ext .ts --fix && cross-env NODE_OPTIONS=\"--max_old_space_size=4096\" prettier --write \"**/*.{ts,js,json,yml,yaml}\"",
+    "lint": "eslint --ext .ts",
+    "clean": "rimraf dist coverage typedoc",
+    "start": "env-cmd -f development.env nest start -p tsconfig.development.json",
+    "start:dev": "env-cmd -f development.env nest start -p tsconfig.development.json -w",
+    "start:debug": "env-cmd -f development.env nest start -p tsconfig.development.json -w -d",
+    "prestart:prod": "rimraf dist && yarn build:prod",
+    "start:prod": "node -r dotenv/config dist/main.js dotenv_config_path=development.env",
+        "typeorm": "ts-node --project tsconfig.base.json ./node_modules/typeorm/cli.js --config development.env",
+    "migration:generate": "yarn typeorm migration:generate --name",
+    "migration:create": "yarn typeorm migration:create --name",
+    "migration:run": "yarn typeorm migration:run",
+    "migration:revert": "yarn typeorm migration:revert",
+    "migration:debug": "node --inspect-brk node_modules/ts-node/dist/bin.js --project tsconfig.base.json -r dotenv/config node_modules/typeorm/cli.js migration:run dotenv_config_path=development.env"
+        "test": "jest --verbose --runInBand",
+    "test:watch": "yarn test --watch",
+    "test:cov": "yarn test --coverage",
+    "test:debug": "node --inspect node_modules/jest/bin/jest.js --verbose --runInBand --watch"
+  }
+}

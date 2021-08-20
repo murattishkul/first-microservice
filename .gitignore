@@ -1,0 +1,32 @@
+.DS_Store
+node_modules
+
+# Build directory
+dist
+
+# TypeDoc website
+typedoc
+
+# Log files
+yarn-debug.log*
+yarn-error.log*
+
+# Jest's test coverage files
+coverage
+
+# Environment variables
+*.env
+!*example.env
+!*tests.env
+
+# Editor directories and files
+.idea
+*.iml
+.vscode
+
+# New Relic log files
+newrelic_agent.log
+
+# Local tsconfig
+tsconfig.json
+

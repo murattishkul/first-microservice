@@ -1,0 +1,29 @@
+{
+  "extends": "./tsconfig.base",
+  "compilerOptions": {
+    /*
+     * Basic Options
+     */
+
+    // Generates corresponding '.d.ts' file.
+    "declaration": true,
+
+    // Generates a sourcemap for each corresponding '.d.ts' file.
+    "declarationMap": true,
+
+    // Generates corresponding '.map' file.
+    "sourceMap": true,
+
+    /*
+     * Disable several strict checks on development
+     */
+
+    // Report errors on unused locals.
+    "noUnusedLocals": false,
+
+    // Report errors on unused parameters.
+    "noUnusedParameters": false
+  },
+  // Files and directories to be included in compilation
+  "include": ["src/**/*"]
+}

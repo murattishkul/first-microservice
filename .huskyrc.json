@@ -1,0 +1,6 @@
+{
+  "hooks": {
+    "pre-commit": "tsc -p tsconfig.base.json --noEmit && lint-staged",
+    "pre-push": "yarn test"
+  }
+}

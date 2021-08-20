@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.base",
+  "compilerOptions": {
+    "types": ["jest", "node"],
+
+    /*
+     * Disable several strict checks on tests
+     */
+
+    // Report errors on unused locals.
+    "noUnusedLocals": false,
+
+    // Report errors on unused parameters.
+    "noUnusedParameters": false
+  },
+  "include": ["**/*.spec.ts", "**/*.d.ts"]
+}
